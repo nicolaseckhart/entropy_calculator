@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 
-public class Entropy_template {
+public class EntropyCalculator1 {
 
 	// Key is of type Integer (we will use character codes as key).
 	// Content of hash-map is of type CharProp.
