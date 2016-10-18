@@ -1,40 +1,3 @@
-// ============================================================================
-//
-//      Entropy 
-//
-// ============================================================================
-//
-//      Version      1.02
-//      Date         2015-10-08
-//      Author       J. M. Stettbacher
-//
-//      System       Java (tested on version 1.7.0_55 on Linux)
-//
-// ============================================================================
-//
-//      Build class file:
-//      (1) Compile using Eclipse or other.
-//      (2) Compile using Makefile. Type on command line:
-//          >> make
-//      (3) Directly on command line:
-//          >> javac Entropy.java
-//
-//      Execute class file (filename is a valid data file in ASCII format):
-//      (1) Run from Eclipse by specifying the filename command line argument.
-//      (2) Run from command line:
-//          >> java Entropy filename
-//
-//      Description:
-//      Reads symbols from the data file and determines:
-//      - number of different character types in file.
-//      - total number of characters in file.
-//      - probability of each character type.
-//      - information of each character type.
-//      - entropy of entire file.
-//
-// ============================================================================
-
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -45,9 +8,6 @@ import java.util.Map.Entry;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 
-// ----------------------------------------------------------------------------
-// Main class:
-// ----------------------------------------------------------------------------
 public class Entropy_template {
 
 	// Key is of type Integer (we will use character codes as key).
@@ -63,9 +23,7 @@ public class Entropy_template {
 		System.out.println("======================================================");
 		System.out.println("Starting ComputeMain...");
 		
-		// ------------------------------------------------------------
 		// Check if a valid filename has been supplied on command line:
-		// ------------------------------------------------------------
 		if (args.length <= 0) {
 			System.out.println("ERROR: You have to supply a filename on the command line!");
 			System.out.println(" ");
@@ -84,26 +42,18 @@ public class Entropy_template {
 		
 		System.out.println( "Data file " + s + " exists.");
 		
-		// ------------------------------------------------------------
-		// Call each method:
-		// ------------------------------------------------------------
 		ReadInputTextFileCharacters(s);
 		ComputeProbabilities();
 		ComputeInformation();
 		fileEntropy = ComputeEntropy();
 		PrintOutCharProps();
 		
-		// ------------------------------------------------------------
-		// Print goodbye message:
-		// ------------------------------------------------------------
 		System.out.println("Done.");
 		System.out.println("======================================================");
 	}
 	
 	
-	// --------------------------------------------------------------------
 	// Character property class:
-	// --------------------------------------------------------------------
 	static class CharProp {
 		int    occurence = 0;
 		double probability = 0;
@@ -111,17 +61,13 @@ public class Entropy_template {
 	}
 	
 	
-	// --------------------------------------------------------------------
 	// Base 2 logarithm:
-	// --------------------------------------------------------------------
 	static double log2(double d) {
 		return Math.log(d)/Math.log(2.0);
 	}
 	
 
-	// --------------------------------------------------------------------
 	// Read character from file and count them:
-	// --------------------------------------------------------------------
 	static void ReadInputTextFileCharacters(String relativeFilePath) {
 
     	System.out.println("Reading file...");
@@ -143,9 +89,7 @@ public class Entropy_template {
 	}
 	
 	
-	// --------------------------------------------------------------------
 	// Compute probability of each character in hash-map:
-	// --------------------------------------------------------------------
 	static void ComputeProbabilities() {
 		
 		System.out.println( "Computing probabilities...");
@@ -158,9 +102,7 @@ public class Entropy_template {
 	}
 
 	
-	// --------------------------------------------------------------------
 	// Compute information for each character in hash-map:
-	// --------------------------------------------------------------------
 	static void ComputeInformation() {
 		
 		System.out.println( "Computing information...");
@@ -172,9 +114,7 @@ public class Entropy_template {
 	}
 
 	
-	// --------------------------------------------------------------------
 	// Compute entropy of all characters in hash-map:
-	// --------------------------------------------------------------------
 	static double ComputeEntropy() {
 		
 		System.out.println( "Computing entropy...");
@@ -188,10 +128,7 @@ public class Entropy_template {
 		return sum;
 	}
 	
-	
-	// --------------------------------------------------------------------
 	// Print result table with occurence, probability and information:
-	// --------------------------------------------------------------------
 	static void PrintOutCharProps() {
 	
 		// Print general statistics
@@ -214,6 +151,3 @@ public class Entropy_template {
 		}
 	}
 }
-
-// ============================================================================
-// ============================================================================
