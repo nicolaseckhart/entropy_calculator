@@ -3,10 +3,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map.Entry;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 
 public class EntropyCalculator1 {
 
